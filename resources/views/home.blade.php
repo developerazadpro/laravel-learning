@@ -139,26 +139,5 @@
 
         <!-- END GRID -->
     </div><br>
-    @php
-        $i = 1;
-        $j = '';
-    @endphp
-    @isset($i)
-        <div class="alert alert-success">Success</div>
-    @endisset
-
-    @empty($j)
-        <div class="alert alert-warning">Empty</div>
-    @endempty
-
-    @switch($i)
-        @case(10)
-            <div class="alert alert-success">1</div>
-            @break
-        @case(2)
-        <div class="alert alert-success">2</div>
-            @break
-        @default
-            <div class="alert alert-danger">0</div>
-    @endswitch
+    
 @endsection

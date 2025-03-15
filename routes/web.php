@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleActionController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,17 +23,8 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/single-action', SingleActionController::class);
 
-Route::group(['prefix' => 'customer'], function(){
-    Route::get('/', function (){
-        return "customer list";
-    });
-    Route::get('/add', function () {
-        return "customer add";
-    });
-    Route::get('/edit/{id}', function ($id) {
-        return "customer edit {$id}";
-    });
-});
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
 Route::fallback(function(){
     return 'page not found';
