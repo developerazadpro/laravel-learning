@@ -12,6 +12,7 @@ class Order extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['customer_id', 'status', 'total_price'];
     public function customer(){
         return $this->belongsTo(Customer::class);
     }

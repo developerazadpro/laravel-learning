@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,12 @@ Route::get('/single-action', SingleActionController::class);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
+
+Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 
 Route::fallback(function(){
     return 'page not found';
