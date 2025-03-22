@@ -29,6 +29,7 @@
 
                         <button type="submit" class="btn btn-primary w-100">Uplaod</button>
                     </form>
+                    <a class="btn btn-success w-100 mt-5" href={{ route('file.download') }}>Download</a>
                 </div>
             </div>
         </div>

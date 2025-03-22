@@ -55,4 +55,8 @@ class FileController extends Controller
             'message' => 'File deleted successful.'
         ]);
      }
+
+     public function fileDownload(Request $request){
+        return redirect()->download(public_path('/storage/upload/myphoto.png'));
+     }
 }
