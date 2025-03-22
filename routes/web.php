@@ -38,6 +38,7 @@ Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.sh
 Route::get('/file', [FileController::class, 'file'])->name('file');
 Route::post('/file', [FileController::class, 'fileUpload'])->name('file.upload');
 Route::get('/file/delete', [FileController::class, 'fileDelete'])->name('file.delete');
+Route::get('/file/download', [FileController::class, 'fileDownload'])->name('file.download');
 
 Route::fallback(function(){
     return 'page not found';
