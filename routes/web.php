@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('custom
 
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+Route::get('/file', [FileController::class, 'file'])->name('file');
+Route::post('/file', [FileController::class, 'fileUpload'])->name('file.upload');
+Route::get('/file/delete', [FileController::class, 'fileDelete'])->name('file.delete');
 
 Route::fallback(function(){
     return 'page not found';
