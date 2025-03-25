@@ -18,10 +18,11 @@
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->customer->name }}</td>
                         <td>${{ number_format($order->total_price, 2) }}</td>
-                        <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-info">View Details</a></td>
+                        <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-info btn-sm">View Details</a></td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {{ $orders->links() }}</div>
     </div>
 @endsection
