@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,10 @@ Route::get('/file', [FileController::class, 'file'])->name('file');
 Route::post('/file', [FileController::class, 'fileUpload'])->name('file.upload');
 Route::get('/file/delete', [FileController::class, 'fileDelete'])->name('file.delete');
 Route::get('/file/download', [FileController::class, 'fileDownload'])->name('file.download');
+
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile/admin', [ProfileController::class, 'adminArea']);
+Route::get('/profile/public/{username}', [ProfileController::class, 'publicProfile']);
 
 Route::fallback(function(){
     return 'page not found';
