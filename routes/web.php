@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin-only', function() {
+    return 'Welcome Admin!';
+})->middleware('is_admin');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/single-action', SingleActionController::class);
 
