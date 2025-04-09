@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function index() {
         $name = 'JON\'S';
-        return view('home', compact('name'));
+        $contactUrl = 'https://contactme.com';
+        return view('home', compact('name', 'contactUrl'));
     }
 }

@@ -79,6 +79,10 @@
                     <x-alert type="danger" message="Something went wrong." />
                 </div>
             </div>
+
+            <x-intro name="Peter Hedersan" intro="Hello, I'm Peter from Swizerland" :contact-url="$contactUrl">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores in mollitia id sapiente aperiam a sit vel! Debitis aperiam laboriosam cum quaerat, ab beatae quam vitae eius consequuntur dicta corporis.</p>
+            </x-intro>
             <hr>
 
             <!-- Posts -->
