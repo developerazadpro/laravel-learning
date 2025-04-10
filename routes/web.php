@@ -8,6 +8,8 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,11 @@ Route::get('/file/download', [FileController::class, 'fileDownload'])->name('fil
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/profile/admin', [ProfileController::class, 'adminArea']);
 Route::get('/profile/public/{username}', [ProfileController::class, 'publicProfile']);
+
+Route::get('/send-mail', function() {
+    Mail::to('azi.fiftytwo@gmail.com')->send(new TestEmail('John', 'https://laravel.com'));
+    return 'Email sent (check Mailtrap inbox)';
+});
 
 Route::fallback(function(){
     return 'page not found';
