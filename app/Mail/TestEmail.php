@@ -19,6 +19,8 @@ class TestEmail extends Mailable
 
     /*
     * Before using mailtrap.io for testing purpose, create an account and modify the .env file accordingly.    
+    */
+
     /**
      * Create a new message instance.
      *
