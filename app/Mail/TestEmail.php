@@ -18,24 +18,7 @@ class TestEmail extends Mailable
     public $actionUrl;
 
     /*
-    * Before using mailtrap.io for testing purpose, create an account and modify the .env file accordingly.
-    * Example below:
-    ## for mailtrap.io
-    # MAIL_MAILER=smtp
-    # MAIL_HOST=sandbox.smtp.mailtrap.io
-    # MAIL_PORT=2525
-    # MAIL_USERNAME=c6ed79250ccc11
-    # MAIL_PASSWORD=b22c3dfe322a64
-    # MAIL_ENCRYPTION=null
-
-    ## for gmail 
-    # for Gmail smtp 
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.gmail.com
-    MAIL_PORT=587
-    MAIL_USERNAME=youremail@gmail.com
-    MAIL_PASSWORD=efuxpgoxdmqpvhkj
-    MAIL_ENCRYPTION=tls
+    * Before using mailtrap.io for testing purpose, create an account and modify the .env file accordingly.    
     */
     /**
      * Create a new message instance.
