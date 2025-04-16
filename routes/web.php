@@ -41,6 +41,7 @@ Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('custom
 
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('/orders/update/{order}', [OrderController::class, 'update'])->name('orders.update');
 
 Route::get('/file', [FileController::class, 'file'])->name('file');
 Route::post('/file', [FileController::class, 'fileUpload'])->name('file.upload');
