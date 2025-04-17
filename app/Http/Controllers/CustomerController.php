@@ -13,6 +13,7 @@ class CustomerController extends Controller
     }
 
     public function show($id){
+        $this->authorize('create_customer');
         $customer = Customer::with('orders')->findOrFail($id);
         return view('customers.show', compact('customer'));
     }

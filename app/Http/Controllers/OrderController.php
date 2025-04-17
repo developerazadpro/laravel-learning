@@ -27,6 +27,7 @@ class OrderController extends Controller
         return view('orders.index', compact('orders'));
     }
     public function show(Order $order){
+        $this->authorize('create_order');
         if (!$order){
             abort(404, 'Order not found');
         }
