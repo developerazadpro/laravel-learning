@@ -43,6 +43,8 @@ class CustomerPolicy
     public function create(User $user)
     {
         return $user->is_admin;
+        /* for role based user like role_id => 1 = admin, role_id => 2 = Editor, role_id => 3 = Normal User*/
+        //return $user->role_id == 1 | $user->role_id == 2;
     }
 
     /**
@@ -54,7 +56,8 @@ class CustomerPolicy
      */
     public function update(User $user, Customer $customer)
     {
-        //
+        /* for role based user like role_id => 1 = admin, role_id => 2 = Editor, role_id => 3 = Normal User*/
+        //return $user->role_id == 1 | $user->role_id == 2;
     }
 
     /**
@@ -66,7 +69,8 @@ class CustomerPolicy
      */
     public function delete(User $user, Customer $customer)
     {
-        //
+        /* for role based user like role_id => 1 = admin, role_id => 2 = Editor, role_id => 3 = Normal User*/
+        //return $user->role_id == 1;
     }
 
     /**
@@ -78,7 +82,8 @@ class CustomerPolicy
      */
     public function restore(User $user, Customer $customer)
     {
-        //
+        /* for role based user like role_id => 1 = admin, role_id => 2 = Editor, role_id => 3 = Normal User*/
+        //return $user->role_id == 1;
     }
 
     /**
@@ -90,6 +95,7 @@ class CustomerPolicy
      */
     public function forceDelete(User $user, Customer $customer)
     {
-        //
+        /* for role based user like role_id => 1 = admin, role_id => 2 = Editor, role_id => 3 = Normal User*/
+        //return $user->role_id == 1;
     }
 }
