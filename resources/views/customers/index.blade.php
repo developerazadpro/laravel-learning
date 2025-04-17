@@ -11,7 +11,9 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Orders Count</th>
+                @can('create_customer')
                 <th>Action</th>
+                @endcan
             </tr>
         </thead>
         <tbody>
@@ -22,9 +24,11 @@
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>
                     <td>{{ $customer->orders->count() }}</td>
+                    @can('create_customer')
                     <td>
                         <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-primary btn-sm">View Orders</a>
                     </td>
+                    @endcan
                 </tr>
             @endforeach
         </tbody>
