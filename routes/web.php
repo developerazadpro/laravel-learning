@@ -22,10 +22,16 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+// Custom routes
 Route::get('/admin-only', function() {
     return 'Welcome Admin!';
 })->middleware('is_admin');
@@ -33,15 +39,8 @@ Route::get('/admin-only', function() {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/single-action', SingleActionController::class);
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
-
-Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
-Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
-
-Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
-Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
-Route::get('/orders/update/{order}', [OrderController::class, 'update'])->name('orders.update');
+// Route::get('/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
 Route::get('/file', [FileController::class, 'file'])->name('file');
 Route::post('/file', [FileController::class, 'fileUpload'])->name('file.upload');
@@ -57,8 +56,23 @@ Route::get('/send-mail', function() {
     return 'Email sent (check Mailtrap inbox)';
 });
 
+// Protected routes
+Route::group(['middleware' => 'auth'], function () {
+    // Orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/orders/update/{order}', [OrderController::class, 'update'])->name('orders.update');
+
+    // Customers
+    Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+});
+
 Route::fallback(function(){
     return 'page not found';
 });
 
 
+
+// Laravel Breeze includes this via `routes/auth.php`
+require __DIR__.'/auth.php';
