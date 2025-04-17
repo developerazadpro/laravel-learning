@@ -11,7 +11,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Orders Count</th>
-                @can('create_customer')
+                @can('create', \App\Models\Customer::class)
                 <th>Action</th>
                 @endcan
             </tr>
@@ -24,7 +24,7 @@
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>
                     <td>{{ $customer->orders->count() }}</td>
-                    @can('create_customer')
+                    @can('create', \App\Models\Customer::class)
                     <td>
                         <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-primary btn-sm">View Orders</a>
                     </td>
