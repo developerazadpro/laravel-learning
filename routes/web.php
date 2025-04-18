@@ -12,6 +12,7 @@ use App\Jobs\SendWelcomeMail;
 use App\Mail\TestEmail;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendNewOrderMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,14 @@ Route::get('/send-welcome-mail', function() {
     SendWelcomeMail::dispatch();
     return 'Email sent (check Mailtrap inbox)';
 });
+
+// this email would be sent from observer
+/* Route::get('/orders/create', function() {
+    SendNewOrderMail::dispatch();
+    return 'New Order placed (check Mailtrap inbox)';
+}); */
+Route::get('/orders/create', [OrderController::class, 'store'])->name('orders.store');
+
 
 // Protected routes
 Route::group(['middleware' => 'auth'], function () {

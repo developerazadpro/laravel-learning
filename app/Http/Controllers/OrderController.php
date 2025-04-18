@@ -26,6 +26,16 @@ class OrderController extends Controller
         });
         return view('orders.index', compact('orders'));
     }
+
+    public function store (Request $request) {
+        $order = new Order();
+        $order->customer_id = 90;
+        $order->status = 'pending';
+        $order->total_price = "1000";
+        $order->save();
+        dd("order placed");
+    }
+
     public function show(Order $order){
         $this->authorize('create', Order::class);
         if (!$order){
