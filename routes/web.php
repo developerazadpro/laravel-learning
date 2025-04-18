@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use App\Jobs\SendWelcomeMail;
 use App\Mail\TestEmail;
 use App\Mail\WelcomeMail;
@@ -70,6 +71,9 @@ Route::get('/send-welcome-mail', function() {
     return 'New Order placed (check Mailtrap inbox)';
 }); */
 Route::get('/orders/create', [OrderController::class, 'store'])->name('orders.store');
+
+// event-listener
+Route::get('/user/create', [RegisterController::class, 'store'])->name('user.store');
 
 
 // Protected routes
