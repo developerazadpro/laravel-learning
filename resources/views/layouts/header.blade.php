@@ -12,6 +12,14 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('file')  }}">File</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('locale', ['locale' => 'en']) }}">English</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('locale', ['locale' => 'dk']) }}">Danish</a>
+          </li>
           
         </ul>
         <form class="d-flex" role="search">

@@ -14,6 +14,8 @@ use App\Mail\TestEmail;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendNewOrderMail;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,7 +94,10 @@ Route::fallback(function(){
     return 'page not found';
 });
 
-
+Route::get('/locale/{locale}', function (Request $request, $localle) {
+    Session::put('locale', $localle);
+    return redirect()->back();
+})->name('locale');
 
 // Laravel Breeze includes this via `routes/auth.php`
 require __DIR__.'/auth.php';

@@ -2,19 +2,24 @@
 
 @section('content')
     <div class="container mt-4">
-        <h2>Orders List</h2>
+        <h2>{{ __('orders.order_list') }}</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Order ID</th>
-                    <th>Customer</th>
-                    <th>Total Price</th>
+                    <th>{{ __('orders.customer') }}</th>
+                    <th>{{ __('orders.total_price') }}</th>
                     @can('create', \App\Models\Order::class)
                     <th>Action</th>
                     @endcan
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    if(Illuminate\Support\Facades\Session::get('locale')){
+                        echo 'Current Lang is: ' . Illuminate\Support\Facades\Session::get('locale');
+                    }
+                ?>
                 @foreach ($orders as $order)
                     <tr>
                         <td>{{ $order->id }}</td>
